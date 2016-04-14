@@ -1,12 +1,36 @@
 # SimpleBarcodeScan
 This code is based on https://github.com/zxing/zxing
 
+#How to use it:
+
+In gradle:
 ```
 repositories {
 	maven { url = 'https://jitpack.io' }
 }
 dependencies {
-	// for https://github.com/user/library with tag 1.0:
-	compile 'com.github.user:library:1.0'
+	compile 'com.github.yuxiaohui78:SimpleBarcodeScan:1.0'
 }
+```
+
+In Android code:
+```
+@Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnBarcodeScan){
+            Intent i = new Intent(this, CaptureActivity.class);
+            startActivityForResult(i, BARCODE_REQ_ID);
+
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == BARCODE_REQ_ID && resultCode == Activity.RESULT_OK) {
+            String barcode = data.getStringExtra("BarcodeNumber");
+            TextView tvBarcodeResult = (TextView) findViewById(R.id.tvBarcodeResult);
+            tvBarcodeResult.setText(barcode);
+        }
+    }
 ```
