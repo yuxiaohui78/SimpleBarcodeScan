@@ -15,12 +15,13 @@ dependencies {
 
 In Android code:
 ```
+public static final int BARCODE_REQ_ID = 0X100;
+
 @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnBarcodeScan){
             Intent i = new Intent(this, CaptureActivity.class);
             startActivityForResult(i, BARCODE_REQ_ID);
-
         }
     }
 
