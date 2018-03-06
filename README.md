@@ -9,7 +9,7 @@ repositories {
 	maven { url = 'https://jitpack.io' }
 }
 dependencies {
-	compile 'com.github.yuxiaohui78:SimpleBarcodeScan:1.0'
+	compile 'com.github.yuxiaohui78:SimpleBarcodeScan:1.1'
 }
 ```
 
